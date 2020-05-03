@@ -1,0 +1,10 @@
+.mary-dany-btc-table {
+    display: inline-block;
+    border: 1px red solid;
+    position: fixed;
+    z-index: 100000;
+    bottom: 0;
+    right: 0;
+    height: 25px;
+    padding: 0px;
+}

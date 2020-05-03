@@ -1,0 +1,45 @@
+{
+    "manifest_version": 2,
+    "name": "Bitcoins Alerts",
+    "version": "1.0",
+    "description": "Shows current bitcoin price from Bitso ",
+    "icons": {
+        "48": "icons/favicon-32x32.png"
+    },
+    "background": {
+        "scripts": [
+            "index.js"
+        ]
+    },
+    "content_scripts": [{
+        "matches": [
+            "*://*/*"
+        ],
+        "js": [
+            "js/btcTableInjector.js"
+        ]
+    }],
+    "permissions": [
+        "webRequest",
+        "notifications",
+        "activeTab",
+        "tabs",
+        "<all_urls>",
+        "storage"
+    ],
+    "options_ui": {
+        "page": "options/options.html"
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "addon@softwaredeveloveper.xyz"
+        }
+    },
+    "browser_action": {
+        "default_icon": {
+            "16": "icons/favicon-16x16.png",
+            "32": "icons/favicon-32x32.png"
+        },
+        "default_popup": "/popup/btc-dashboard.html"
+    }
+}
