@@ -12,23 +12,39 @@ if (!window.isBtcTableLoaded) {
         "cursor:move;" +
         "top: 0;" +
         "left: 0;" +
-        "height: 20px;" +
-        "padding: 2px 10px 0px;" +
-        "background-color: #F59413;" +
-        "color: #fcead3;" +
-        "border-radius: 37px 1px;" +
+        "height: 24px;" +
+        " padding-left: 2px;" +
+        "padding-top: 1px;" +
+        "padding-right: 20px;" +
+        "background-color: rgba(245, 148, 19, 0.37);" +
+        "color:#242222;" +
+        "border-radius: 10px 10px 0px 0px;" +
         "font-weight: 600;" +
         "text-shadow: 1px 1px #757373;" +
         "font-family: Roboto;" +
         "box-shadow: 0px 0px 1px 1px #fab560;" +
-        "opacity:0.8;" +
-        "font-size: 12px;";
+        "opacity:0.9;" +
+        "overflow:hidden;" +
+        "font-family:arial;" +
+        "box-sizing: border-box;" +
+        "font-size: 11px;" +
+        "display: flex;";
     let icon = browser.runtime.getURL("icons/favicon-32x32.png");
-
+    let iconCss =
+        "width: 21px; flex-shrink: 2;";
+    let mainContainerCss = "flex-shrink: 2; padding-top: 3px;";
     // adding elements to body
+    let bodyIcon = document.createElement("img");
     let bodyPriceNoticeElement = document.createElement("div");
+    let mainContainer = document.createElement("div");
     let internalSpanContainer = document.createElement("span");
 
+
+    // mainContainer
+    mainContainer.setAttribute("style", mainContainerCss);
+    // icon
+    bodyIcon.setAttribute("style", iconCss);
+    bodyIcon.setAttribute("src", icon);
 
     // price container
     bodyPriceNoticeElement.setAttribute("id", bodyPriceNotice);
@@ -40,9 +56,10 @@ if (!window.isBtcTableLoaded) {
     internalSpanContainer.innerText = "loading...";
 
     // appending elements
-    bodyPriceNoticeElement.appendChild(internalSpanContainer);
+    bodyPriceNoticeElement.appendChild(bodyIcon);
+    mainContainer.appendChild(internalSpanContainer);
+    bodyPriceNoticeElement.appendChild(mainContainer);
     document.body.appendChild(bodyPriceNoticeElement);
-
     // adding position to main container
 
     function PositionHelper(bodyPriceNoticeElement) {
