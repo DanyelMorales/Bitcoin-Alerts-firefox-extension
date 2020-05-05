@@ -111,7 +111,7 @@ let BitsoProviderWS = function(uiHandler, configuration) {
         };
 
         websocket.onclose(function() {
-
+            console.log("desconectado......");
         });
     };
 };
@@ -146,7 +146,7 @@ let BitsoProvider = function(uiHandler, configuration) {
 
         // execute operations
         if (loop) {
-            setInterval(retrieveBitsoInformationFn, 1000);
+            setInterval(retrieveBitsoInformationFn, 2000);
         } else {
             retrieveBitsoInformationFn();
         }
@@ -155,12 +155,7 @@ let BitsoProvider = function(uiHandler, configuration) {
 
 };
 // DISPATCHING USER NOTIFICATIONS
-browser.notifications.create("btc-notification", {
-    "type": "basic",
-    "iconUrl": browser.runtime.getURL("icons/btc-72x72.png"),
-    "title": "Time for cake!",
-    "message": "Something something cake"
-});
+
 
 // ==============INIT==============
 
@@ -190,15 +185,15 @@ let uiHandler = new UIHandler([
     new StorageDelegator()
 ]);
 
-let provider = new BitsoProviderWS(uiHandler, config);
+//let provider = new BitsoProviderWS(uiHandler, config);
 
 let boostrapProvider = new BitsoProvider(uiHandler, config);
 
 // first execution
-boostrapProvider.run();
+boostrapProvider.run(true);
 
 // then we can just start listening on websocket port
-provider.run();
+//provider.run();
 
 // Handling new tab loading
 browser.tabs.onUpdated.addListener(function() {
