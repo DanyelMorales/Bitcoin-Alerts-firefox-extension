@@ -27,12 +27,12 @@ if (!window.isBtcTableLoaded) {
         "overflow:hidden;" +
         "font-family:arial;" +
         "box-sizing: border-box;" +
-        "font-size: 11px;" +
+        "font-size: 12px; letter-spacing: 1px;" +
         "display: flex;";
     let icon = browser.runtime.getURL("icons/favicon-32x32.png");
     let iconCss =
         "width: 21px; flex-shrink: 2;";
-    let mainContainerCss = "flex-shrink: 2; padding-top: 3px;";
+    let mainContainerCss = "flex-shrink: 2; padding-top: 3px; padding-left: 3px;";
     // adding elements to body
     let bodyIcon = document.createElement("img");
     let bodyPriceNoticeElement = document.createElement("div");

@@ -6,31 +6,84 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="style/css/bootstrap.min.css" />
     <link rel="stylesheet" href="style/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
 </head>
 
 <body>
     <div class="container">
-        <div class="row lead">
-            <table id="crypto-table" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <td>Buy</td>
-                        <td>Sell</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="buy-value">
-                            0.0 <span>MXN</span>
-                        </td>
-                        <td class="sell-value">
-                            0.0 <span>MXN</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row">
+            <div class="col-md-12">
+                <h5> <strong> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;Settings</strong> </h5>
+                <form>
+                    <div class="form-group col-md-6">
+                        <label>BTC Conversion</label>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputAmount">To</label>
+                            <select class="form-control" name="currency-conversion" id="currency-conversion">
+                                <option value="mxn">MXN</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label>Trigger alert over</label>
+                        <div class="form-group  number-field">
+                            <label class="sr-only" for="alert-over-amount">Amount</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                                </div>
+                                <input type="text" class="form-control" id="alert-over-amount" placeholder="Amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Trigger alert under</label>
+                        <div class="form-group  number-field">
+                            <label class="sr-only" for="alert-under-amount">Amount</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                                </div>
+                                <input type="text" class="form-control" id="alert-under-amount" placeholder="Amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Trigger alert on</label>
+                        <div class="form-group  number-field">
+                            <label class="sr-only" for="alert-on-amount">Amount</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                                </div>
+                                <input type="text" class="form-control" id="alert-on-amount" placeholder="Amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <label>Notify Alarm every</label>
+                        <div class="form-group  number-field">
+                            <label class="sr-only" for="alarm-on-minutes">Amount</label>
+                            <div class="input-group">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div>
+                                <input type="text" min="0" placeholder="0" class="form-control number-field" id="alarm-on-minutes" />
+                                <div class="input-group-addon">minutes</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <button type="submit"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>&nbsp;Save</button>
+                        <button type="reset"> <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>&nbsp; Reset</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
+
+    <script src="/js/jquery.js"></script>
+    <script src="style/js/bootstrap.min.js"></script>
+    <script src="btc-dashboard.js"></script>
 </body>
 
 </html>
