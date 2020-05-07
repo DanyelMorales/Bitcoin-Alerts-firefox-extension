@@ -15,13 +15,15 @@
         <div class="row">
             <div class="col-md-12">
                 <h5> <strong> <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> &nbsp;Settings</strong> </h5>
-                <form>
+
+                <form id="settings-form">
                     <div class="form-group col-md-6">
                         <label>BTC Conversion</label>
                         <div class="form-group">
-                            <label class="sr-only" for="exampleInputAmount">To</label>
+                            <label class="sr-only" for="currency-conversion">To</label>
                             <select class="form-control" name="currency-conversion" id="currency-conversion">
-                                <option value="mxn">MXN</option>
+                                <option value="1" data-val="btc-mxn" selected>MXN</option>
+                                <option value="2" data-val="btc-USD">USD</option>
                             </select>
                         </div>
                     </div>
@@ -33,7 +35,7 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                                 </div>
-                                <input type="text" class="form-control" id="alert-over-amount" placeholder="Amount">
+                                <input type="number" pattern="[0-9]+" class="form-control" id="alert-over-amount" placeholder="Amount">
                             </div>
                         </div>
                     </div>
@@ -45,7 +47,7 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                                 </div>
-                                <input type="text" class="form-control" id="alert-under-amount" placeholder="Amount">
+                                <input type="number" pattern="[0-9]+" class="form-control" id="alert-under-amount" placeholder="Amount">
                             </div>
                         </div>
                     </div>
@@ -57,7 +59,7 @@
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
                                 </div>
-                                <input type="text" class="form-control" id="alert-on-amount" placeholder="Amount">
+                                <input type="number" pattern="[0-9]+" class="form-control" id="alert-on-amount" placeholder="Amount">
                             </div>
                         </div>
                     </div>
@@ -67,7 +69,7 @@
                             <label class="sr-only" for="alarm-on-minutes">Amount</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><span class="glyphicon glyphicon-time" aria-hidden="true"></span></div>
-                                <input type="text" min="0" placeholder="0" class="form-control number-field" id="alarm-on-minutes" />
+                                <input type="number" pattern="[0-9]+" min="0" placeholder="0" class="form-control number-field" id="alarm-on-minutes" />
                                 <div class="input-group-addon">minutes</div>
                             </div>
                         </div>
@@ -84,6 +86,8 @@
     <script src="/js/jquery.js"></script>
     <script src="style/js/bootstrap.min.js"></script>
     <script src="btc-dashboard.js"></script>
+    <script src="validation/jquery.validate.min.js"></script>
+    <script src="validation/additional-methods.min.js"></script>
 </body>
 
 </html>
