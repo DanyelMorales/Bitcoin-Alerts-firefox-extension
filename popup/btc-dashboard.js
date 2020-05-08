@@ -17,11 +17,14 @@ $(document).ready(function() {
             $(element).addClass(errorClass).removeClass(validClass);
             $(element.form).find("label[for=" + element.id + "]")
                 .addClass(errorClass);
+            submitBtn.attr("disabled", "disabled");
         },
         unhighlight: function(element, errorClass, validClass) {
             $(element).removeClass(errorClass).addClass(validClass);
             $(element.form).find("label[for=" + element.id + "]")
                 .removeClass(errorClass);
+            submitBtn.removeAttr("disabled");
+
         }
     });
 
@@ -42,7 +45,8 @@ $(document).ready(function() {
         e.preventDefault();
         browser.storage.sync.remove("settings").then(
             function() {
-                currencyConversion.val(1);
+                submitBtn.attr("disabled", "disabled");
+                //currencyConversion.val();
                 alertOverAmount.val("");
                 alertUnderAmount.val("");
                 alertOnAmount.val("");
@@ -56,17 +60,14 @@ $(document).ready(function() {
         e.preventDefault();
         browser.storage.sync.set({
             "settings": {
-                currencyConversion: currencyConversion.val(),
+                currencyConversion: currencyConversion.find("option:selected").val(),
                 alertOverAmount: alertOverAmount.val(),
                 alertUnderAmount: alertUnderAmount.val(),
                 alertOnAmount: alertOnAmount.val(),
                 alertOnMinutes: alertOnMinutes.val(),
             }
-        }).then(function() {
-
         });
     });
 });
 
-
-// to add notifications when saving is done
+// todo: add notifications when saving is done
